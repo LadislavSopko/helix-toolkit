@@ -81,7 +81,7 @@ namespace HelixToolkit.UWP
         {
             if (!isInitialized)
             {
-                Debug.WriteLine($"Billboard DrawTexture");
+                // Debug.WriteLine($"Billboard DrawTexture");
                 BillboardVertices.Clear();
                 OnUpdateTextureAndBillboardVertices(deviceResources);
                 UpdateBounds();
