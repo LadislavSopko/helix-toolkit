@@ -399,36 +399,54 @@ namespace HelixToolkit.UWP
                     Meshes = new MeshInfo[scene.MeshCount],
                     Materials = new KeyValuePair<global::Assimp.Material, MaterialCore>[scene.MaterialCount]
                 };
-                Parallel.Invoke(() =>
+
+                if (scene.HasMeshes)
+                {
+                    for (var i = 0; i < scene.MeshCount; ++i)
                     {
-                        if (scene.HasMeshes)
-                        {
-                            if (parallel)
-                            {
-                                Parallel.ForEach(scene.Meshes,
-                                        (mesh, state, index) => { s.Meshes[index] = OnCreateHelixGeometry(mesh); });
-                            }
-                            else
-                            {
-                                for (var i = 0; i < scene.MeshCount; ++i)
-                                {
-                                    s.Meshes[i] = OnCreateHelixGeometry(scene.Meshes[i]);
-                                }
-                            }
-                        }
-                    },
-                    () =>
+                        s.Meshes[i] = OnCreateHelixGeometry(scene.Meshes[i]);
+                    }
+                };
+
+                if (scene.HasMaterials)
+                {
+                    embeddedTextures = scene.HasTextures ? scene.Textures : new List<EmbeddedTexture>();
+                    for (var i = 0; i < scene.MaterialCount; ++i)
                     {
-                        if (scene.HasMaterials)
-                        {
-                            embeddedTextures = scene.HasTextures ? scene.Textures : new List<EmbeddedTexture>();
-                            for (var i = 0; i < scene.MaterialCount; ++i)
-                            {
-                                s.Materials[i] = OnCreateHelixMaterial(scene.Materials[i]);
-                            }
-                            embeddedTextures = null;
-                        }
-                    });
+                        s.Materials[i] = OnCreateHelixMaterial(scene.Materials[i]);
+                    }
+                    embeddedTextures = null;
+                };
+                //Parallel.Invoke(() =>
+                //    {
+                //        if (scene.HasMeshes)
+                //        {
+                //            if (parallel)
+                //            {
+                //                Parallel.ForEach(scene.Meshes,
+                //                        (mesh, state, index) => { s.Meshes[index] = OnCreateHelixGeometry(mesh); });
+                //            }
+                //            else
+                //            {
+                //                for (var i = 0; i < scene.MeshCount; ++i)
+                //                {
+                //                    s.Meshes[i] = OnCreateHelixGeometry(scene.Meshes[i]);
+                //                }
+                //            }
+                //        }
+                //    },
+                //    () =>
+                //    {
+                //        if (scene.HasMaterials)
+                //        {
+                //            embeddedTextures = scene.HasTextures ? scene.Textures : new List<EmbeddedTexture>();
+                //            for (var i = 0; i < scene.MaterialCount; ++i)
+                //            {
+                //                s.Materials[i] = OnCreateHelixMaterial(scene.Materials[i]);
+                //            }
+                //            embeddedTextures = null;
+                //        }
+                //    });
                 return s;
             }
 
