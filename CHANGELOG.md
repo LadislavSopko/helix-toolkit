@@ -1,6 +1,81 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.15.0] - 2021-02-20
+### Added
+1. Supports morph target animation. (WPF.SharpDX/UWP/Core)
+2. Supports animation playback speed. (WPF.SharpDX/UWP/Core)
+3. Supports releasing geometry data after loading into GPU. Call `Geometry3D.SetAsTransient()` to enable this feature. (WPF.SharpDX/UWP/Core) 
+(Restrictions: View only; no hit test support; geometry must not be shared with multiple models; Must enable before attaching geometry3D onto a Model3D/Node, or before the Model3D/node being attached to a viewport.)
+4. Supports billboard alignment relative to the origin. (WPF.SharpDX/UWP/Core)
+5. Supports animation updater group. (WPF.SharpDX/UWP/Core)
+6. Added extension helper method to create animation updaters from animation list. (WPF.SharpDX/UWP/Core)
+
+### Improvement
+1. Improved thread buffer management. (WPF.SharpDX/UWP/Core)
+2. Changed return type for SceneNodeGroupModel3D `AddNode` `RemoveNode`. #1443 (WPF.SharpDX/UWP/Core)
+
+### Fixed
+1. Fixed border highlights and outline blur Post Effect blending issues #1491. (WPF.SharpDX/UWP/Core)
+2. Fixed environment map is still being used on object after disabling it. (WPF.SharpDX/UWP/Core)
+3. Fixed UWP assimp nuget spec is missing files. #1505 (UWP)
+4. Fixed UnmapSubresource is not called after MapSubresource during hit test for bone skinning mesh. #1499 (WPF.SharpDX/UWP/Core)
+5. Fixed wrong padding(bottom/right) in billboard single text. #1520 (WPF.SharpDX/UWP/Core)
+
+## [2.14.0] - 2021-01-09
+### Added
+1. Added `CameraType` property for screen space group. Allows to use orthographic camera for screen space group under `RelativeScreenSpaced` mode.
+
+### Improvement
+1. Make projects in new format (vs2017) also use the global AssemblyInfo.cs.
+2. Updated NuGet version to v5.8.
+3. Updated UWP min version to Win SDK 1903. (UWP)
+4. Updated Cyotek.Drawing.BitmapFont to 2.0.0. (WPF.SharpDX/UWP/Core)
+5. Supports group model under screen space group. (WPF.SharpDX/UWP/Core)
+
+### Fixed
+1. ZoomExtents: confusion between horizontal and vertical fov. #1441 (WPF.SharpDX/UWP/Core)
+2. Render bitmap custom size. #1439  (WPF.SharpDX/UWP/Core)
+3. Fixed UWP nuget package missing .cso shader files. (UWP)
+4. Fixed AssimpNet version in nuget spec. (WPF.SharpDX/UWP/Core)
+5. Fixed mesh outline post effect not visible under white background #1466  (WPF.SharpDX/UWP/Core)
+6. Fixed data binding fails on button2D #1385 (WPF.SharpDX)
+7. Fixed billboard/line/point hit test not working properly with Dpi scaling enabled. (WPF.SharpDX/UWP/Core)
+8. Fixed billboard/line/point not able to do hit test inside screen space group. (WPF.SharpDX/UWP/Core)
+9. Fixed DataTemplate3D not supporting Binding-elements #1480 (Wpf)
+
+### Breaking Change
+1. `RenderContext` has been changed to `IRenderMetrices` on hit test related function signature. (WPF.SharpDX/UWP/Core)
+
+## [2.13.1] - 2020-10-17
+### Fixed
+1. Fixed small triangle hit test is not working correctly in octree. #1428 (WPF.SharpDX/UWP/Core)
+2. Fixed PointVisual3D and LinesVisual3D invisible on mirrored transformation. #1340 (WPF)
+
+## [2.13.0] - 2020-10-10
+### Added
+1. Added `AlwaysHittable` property for scene nodes. Allow mesh to be hittable even it is not being rendered(Visible = false). Ref #1393 (WPF.SharpDX/UWP/Core)
+2. Implemented high DPI rendering under DPI scaling to improve rendering quality. #1404 (WPF.SharpDX/UWP/Core)
+   
+   To turn this feature off, set `Viewport3DX.EnableDpiScale = false`.
+   
+### Improvement and Changes
+1. Improved small triangle hit test. Ref #1353 (WPF.SharpDX/UWP/Core)
+2. Supports up to 8 clipping planes(cross section). Ref #1396 (WPF.SharpDX/UWP/Core)
+3. Supports `Dot Net Core 3.1`. (Core)
+4. Upgrades `Assimp.net` to 5.0 beta.
+
+### Fixed
+1. Fixed hit test in `CrossSectionGeometryModel3D` when uses octree or set `CuttingOperation = Substract`. Ref #1396 (WPF.SharpDX/UWP/Core)
+2. Fixed keybinding issue in Viewport3DX. Ref #1390 (WPF.SharpDX)
+3. Fixed UWP runtime error due to dependency property naming conflicts. #1365
+   
+   In order to fix the issue, following breaking changes have to be made:  (UWP)
+   * `Transform3D` renames to `HxTransform3D`. The `Transform3D` is a DP in UWP `UIElement`, which is not able to be overridden.
+   * Gesture bindings for UWP `Viewport3DX` have been moved from `Viewport3DX.InputBindings` into `Viewport3DX.ManipulationBindings`.
+4. Fixed small error in the calculation of the animation. #1405  (WPF.SharpDX/UWP/Core)
+5. Fixed typo in `TextInfo`. #1415  (WPF.SharpDX/UWP/Core)
+
 ## [2.12.0] - 2020-05-25
 ### Added
 1. Support Vertex Color blending for Phong/PBR/Diffuse materials with new `VertexColorBlendingFactor` property. (WPF.SharpDX/UWP/Core)

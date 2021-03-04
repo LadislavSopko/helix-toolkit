@@ -235,14 +235,25 @@ namespace HelixToolkit.UWP
             /// </value>
             public int ItemsCount { get => Items.Count; }
 
+            private bool isHitTestVisible = true;
             /// <summary>
             /// Gets or sets a value indicating whether this instance is hit test visible.
             /// </summary>
             /// <value>
             ///   <c>true</c> if this instance is hit test visible; otherwise, <c>false</c>.
             /// </value>
-            public bool IsHitTestVisible { set; get; } = true;
+            public bool IsHitTestVisible { set => isHitTestVisible = value; get => isHitTestVisible | AlwaysHittable; }
 
+            /// <summary>
+            /// Gets or sets a value indicating whether [always hittable] even it is not rendered.
+            /// </summary>
+            /// <value>
+            ///   <c>true</c> if [always hittable]; otherwise, <c>false</c>.
+            /// </value>
+            public bool AlwaysHittable
+            {
+                set; get;
+            } = false;
             /// <summary>
             /// Gets or sets the type of the render.
             /// </summary>
@@ -682,7 +693,7 @@ namespace HelixToolkit.UWP
             /// <param name="ray">The ray.</param>
             /// <param name="hits">The hits.</param>
             /// <returns></returns>
-            public virtual bool HitTest(RenderContext context, Ray ray, ref List<HitTestResult> hits)
+            public virtual bool HitTest(IRenderMatrices context, Ray ray, ref List<HitTestResult> hits)
             {
                 if (CanHitTest(context))
                 {
@@ -701,9 +712,9 @@ namespace HelixToolkit.UWP
             /// <returns>
             ///   <c>true</c> if this instance [can hit test] the specified context; otherwise, <c>false</c>.
             /// </returns>
-            protected virtual bool CanHitTest(RenderContext context)
+            protected virtual bool CanHitTest(IRenderMatrices context)
             {
-                return IsHitTestVisible && IsRenderable;
+                return AlwaysHittable || (IsHitTestVisible && IsRenderable);
             }
 
             /// <summary>
@@ -714,7 +725,7 @@ namespace HelixToolkit.UWP
             /// <param name="ray">The ray.</param>
             /// <param name="hits">The hits.</param>
             /// <returns></returns>
-            protected abstract bool OnHitTest(RenderContext context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits);
+            protected abstract bool OnHitTest(IRenderMatrices context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits);
 
             #endregion Hit Test
 
@@ -1038,7 +1049,7 @@ namespace HelixToolkit.UWP
         {
             public static readonly NullSceneNode NullNode = new NullSceneNode();
 
-            protected override bool OnHitTest(RenderContext context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits)
+            protected override bool OnHitTest(IRenderMatrices context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits)
             {
                 return false;
             }

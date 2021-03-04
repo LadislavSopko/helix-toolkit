@@ -32,7 +32,7 @@ namespace HelixToolkit.UWP
     /// The render-context is currently generated per frame
     /// Optimizations might be possible
     /// </summary>
-    public sealed class RenderContext : DisposeObject
+    public sealed class RenderContext : DisposeObject, IRenderMatrices
     {
         /// <summary>
         /// Gets or sets the bounding frustum.
@@ -51,7 +51,10 @@ namespace HelixToolkit.UWP
         /// <value>
         /// The view matrix.
         /// </value>
-        public Matrix ViewMatrix;
+        public Matrix ViewMatrix
+        {
+            set; get;
+        }
 
         /// <summary>
         /// Gets or sets the projection matrix.
@@ -59,7 +62,10 @@ namespace HelixToolkit.UWP
         /// <value>
         /// The projection matrix.
         /// </value>
-        public Matrix ProjectionMatrix;
+        public Matrix ProjectionMatrix
+        {
+            set; get;
+        }
 
         /// <summary>
         /// Gets the viewport matrix.
@@ -109,7 +115,16 @@ namespace HelixToolkit.UWP
         /// The actual height.
         /// </value>
         public float ActualHeight { get { return RenderHost.ActualHeight; } }
-
+        /// <summary>
+        /// Gets the dpi scale.
+        /// </summary>
+        /// <value>
+        /// The dpi scale.
+        /// </value>
+        public float DpiScale
+        {
+            get => RenderHost.DpiScale;
+        }
         /// <summary>
         /// Gets or sets the camera.
         /// </summary>
@@ -368,7 +383,7 @@ namespace HelixToolkit.UWP
         /// </summary>
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Matrix GetScreenViewProjectionMatrix()
+        internal Matrix GetScreenViewProjectionMatrix()
         {
             return ScreenViewProjectionMatrix;
         }
@@ -394,7 +409,8 @@ namespace HelixToolkit.UWP
                 globalTransform.View = ViewMatrix;
                 globalTransform.Projection = ProjectionMatrix;
                 globalTransform.ViewProjection = ViewMatrix * ProjectionMatrix;
-                globalTransform.TimeStamp = (float)Stopwatch.GetTimestamp()/Stopwatch.Frequency;                
+                globalTransform.TimeStamp = (float)Stopwatch.GetTimestamp()/Stopwatch.Frequency;
+                globalTransform.DpiScale = DpiScale;
                 cbuffer.UploadDataToBuffer(deviceContext, ref globalTransform);
             }
             if (updateLights)

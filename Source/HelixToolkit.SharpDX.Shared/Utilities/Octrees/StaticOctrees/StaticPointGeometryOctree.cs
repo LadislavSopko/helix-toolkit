@@ -92,7 +92,7 @@ namespace HelixToolkit.UWP
             private Vector3 clickPoint;
             private Matrix smvpm;
             #endregion
-            public override bool HitTest(RenderContext context, object model, Geometry3D geometry, Matrix modelMatrix, Ray rayWS, ref List<HitTestResult> hits, float hitThickness)
+            public override bool HitTest(IRenderMatrices context, object model, Geometry3D geometry, Matrix modelMatrix, Ray rayWS, ref List<HitTestResult> hits, float hitThickness)
             {
                 needRecalculate = true;
                 return base.HitTest(context, model, geometry, modelMatrix, rayWS, ref hits, hitThickness);
@@ -107,11 +107,14 @@ namespace HelixToolkit.UWP
             /// <param name="modelMatrix"></param>
             /// <param name="rayWS"></param>
             /// <param name="rayModel"></param>
+            /// <param name="returnMultiple"></param>
             /// <param name="hits"></param>
             /// <param name="isIntersect"></param>
             /// <param name="hitThickness"></param>
             /// <returns></returns>
-            protected override bool HitTestCurrentNodeExcludeChild(ref Octant octant, RenderContext context, object model, Geometry3D geometry, Matrix modelMatrix, ref Ray rayWS, ref Ray rayModel, ref List<HitTestResult> hits, ref bool isIntersect, float hitThickness)
+            protected override bool HitTestCurrentNodeExcludeChild(ref Octant octant, IRenderMatrices context, object model, 
+                Geometry3D geometry, Matrix modelMatrix, ref Ray rayWS, ref Ray rayModel, bool returnMultiple,
+                ref List<HitTestResult> hits, ref bool isIntersect, float hitThickness)
             {
                 isIntersect = false;
                 if (!octant.IsBuilt || context == null)
@@ -144,7 +147,11 @@ namespace HelixToolkit.UWP
                         var v0 = Positions[Objects[i]];
                         var p0 = Vector3.TransformCoordinate(v0, smvpm);
                         var pv = p0 - clickPoint;
-                        var d = pv.Length();
+                        var d = pv.Length() / context.DpiScale;
+                        if (returnMultiple)
+                        {
+                            dist = hitThickness;
+                        }
                         if (d < dist) // If d is NaN, the condition is false.
                         {
                             dist = d;
@@ -156,10 +163,15 @@ namespace HelixToolkit.UWP
                             result.Tag = Objects[i];
                             result.Geometry = geometry;
                             isHit = true;
+                            if (returnMultiple)
+                            {
+                                hits.Add(result);
+                                result = new HitTestResult();
+                            }
                         }
                     }
 
-                    if (isHit)
+                    if (isHit && !returnMultiple)
                     {
                         isHit = false;
                         if (hits.Count > 0)
@@ -189,7 +201,7 @@ namespace HelixToolkit.UWP
             /// <param name="result"></param>
             /// <param name="isIntersect"></param>
             /// <returns></returns>
-            protected override bool FindNearestPointBySphereExcludeChild(ref Octant octant, RenderContext context,
+            protected override bool FindNearestPointBySphereExcludeChild(ref Octant octant, IRenderMatrices context,
                 ref BoundingSphere sphere, ref List<HitTestResult> result, ref bool isIntersect)
             {
                 bool isHit = false;

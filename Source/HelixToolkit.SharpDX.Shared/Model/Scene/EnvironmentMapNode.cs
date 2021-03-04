@@ -84,14 +84,24 @@ namespace HelixToolkit.UWP
                 return host.EffectsManager[DefaultRenderTechniqueNames.Skybox];
             }
 
-            public sealed override bool HitTest(RenderContext context, Ray ray, ref List<HitTestResult> hits)
+            public sealed override bool HitTest(IRenderMatrices context, Ray ray, ref List<HitTestResult> hits)
             {
                 return false;
             }
 
-            protected sealed override bool OnHitTest(RenderContext context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits)
+            protected sealed override bool OnHitTest(IRenderMatrices context, Matrix totalModelMatrix, ref Ray ray, ref List<HitTestResult> hits)
             {
                 return false;
+            }
+
+            protected override bool CanRender(RenderContext context)
+            {
+                if (!base.CanRender(context))
+                {
+                    context.SharedResource.EnvironementMap = null;
+                    return false;
+                }
+                return true;
             }
         }
     }

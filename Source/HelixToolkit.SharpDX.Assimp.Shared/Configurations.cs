@@ -104,9 +104,14 @@ namespace HelixToolkit.UWP
             public bool ForceCullMode = false;
 
             /// <summary>
-            ///     The ignore emissive color
+            /// Ignores emissive color during importing.
             /// </summary>
             public bool IgnoreEmissiveColor = false;
+
+            /// <summary>
+            /// Ignores the ambient color during importing.
+            /// </summary>
+            public bool IgnoreAmbientColor = false;
 
             /// <summary>
             ///     Force to use material type. Default is Auto
@@ -172,6 +177,11 @@ namespace HelixToolkit.UWP
             /// Indicate if source model transform matrix column major. Note: Most of software exported model defaults to be column major in transform matrix
             /// </summary>
             public bool IsSourceMatrixColumnMajor = true;
+
+            /// <summary>
+            /// The build octree automatically during loading.
+            /// </summary>
+            public bool BuildOctree = true;
 
             public ITextureIO TextureLoader;
             /// <summary>
