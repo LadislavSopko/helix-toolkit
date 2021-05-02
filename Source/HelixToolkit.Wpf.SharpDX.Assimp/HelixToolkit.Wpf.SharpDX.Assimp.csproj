@@ -76,10 +76,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HelixToolkit.Wpf.SharpDX\HelixToolkit.Wpf.SharpDX.csproj">
-      <Project>{39740654-f5f1-4936-b4ea-9bc97d4cde37}</Project>
-      <Name>HelixToolkit.Wpf.SharpDX</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj">
       <Project>{7c0e987e-cc34-4b19-ba6b-b381aeabb530}</Project>
       <Name>HelixToolkit</Name>
