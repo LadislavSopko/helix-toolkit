@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard1.3</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\HelixToolkit.snk</AssemblyOriginatorKeyFile>
         <Copyright>Copyright (C) Helix Toolkit 2018.</Copyright>
@@ -18,27 +18,11 @@
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
       <DocumentationFile>bin\Release\netstandard1.1\HelixToolkit.xml</DocumentationFile>
       <ShouldCreateLogs>True</ShouldCreateLogs>
-      <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-      <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
-      <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
-      <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-      <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
-      <UpdatePackageVersion>False</UpdatePackageVersion>
-      <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-      <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-      <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
+      
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <ShouldCreateLogs>True</ShouldCreateLogs>
-      <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-      <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
-      <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
-      <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-      <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
-      <UpdatePackageVersion>False</UpdatePackageVersion>
-      <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-      <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-      <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
+      
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
