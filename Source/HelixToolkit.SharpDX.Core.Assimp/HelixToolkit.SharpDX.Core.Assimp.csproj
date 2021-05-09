@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <Copyright>Copyright (C) Helix Toolkit 2019.</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>http://www.helix-toolkit.org/</PackageProjectUrl>
@@ -68,13 +68,13 @@
   </PropertyGroup>
     
     <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0|Release|AnyCPU'">
-      <DefineConstants>TRACE;NETFX_CORE;CORE;NETCORE5_0</DefineConstants>
+      <DefineConstants>TRACE;NETFX_CORE;CORE;NET5_0</DefineConstants>
       <DocumentationFile>bin\Release\HelixToolkit.SharpDX.Core.Assimp.xml</DocumentationFile>
       <OutputPath>bin\Release\</OutputPath>
       <NoWarn>1701;1702;1591;</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0|Debug|AnyCPU'">
-      <DefineConstants>TRACE;NETFX_CORE;CORE;NETCORE5_0</DefineConstants>
+      <DefineConstants>TRACE;NETFX_CORE;CORE;NET5_0</DefineConstants>
       <OutputPath>bin\Debug\</OutputPath>
       <DocumentationFile></DocumentationFile>
   </PropertyGroup>

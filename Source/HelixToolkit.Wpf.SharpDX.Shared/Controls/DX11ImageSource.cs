@@ -100,9 +100,9 @@ namespace HelixToolkit.Wpf.SharpDX
                 base.AddDirtyRect(new Int32Rect(0, 0, base.PixelWidth, base.PixelHeight));
                 base.Unlock();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
