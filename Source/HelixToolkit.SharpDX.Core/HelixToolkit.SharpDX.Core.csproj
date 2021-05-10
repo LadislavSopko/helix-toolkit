@@ -103,7 +103,7 @@
         </Compile>
     </ItemGroup>
   <PropertyGroup>
-    <TargetFrameworks>net5.0</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows</TargetFrameworks>
     <Copyright>Copyright (C) Helix Toolkit 2019.</Copyright>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>http://www.helix-toolkit.org/</PackageProjectUrl>
@@ -173,12 +173,12 @@
       <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
     
-  <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0|Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0-windows|Debug|AnyCPU'">
       <DefineConstants>TRACE;DEBUG;NETFX_CORE;CORE;SHARPDX;DX11;MSAA;DX11_1;NET5_0</DefineConstants>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
       <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0|Release|AnyCPU'">
+  <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0-windows|Release|AnyCPU'">
       <DefineConstants>TRACE;NETFX_CORE;CORE;SHARPDX;DX11;MSAA;DX11_1;RELEASE;NET5_0</DefineConstants>
       <DocumentationFile>bin\Release\HelixToolkit.SharpDX.Core.xml</DocumentationFile>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
