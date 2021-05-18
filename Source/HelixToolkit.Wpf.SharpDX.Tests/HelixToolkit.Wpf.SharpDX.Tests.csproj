@@ -170,7 +170,7 @@
       <Name>HelixToolkit.Wpf.SharpDX</Name>
     </ProjectReference>
     <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj">
-      <Project>{7c0e987e-cc34-4b19-ba6b-b381aeabb530}</Project>
+      <Project>{68fea97c-4974-480d-b02d-37e310d8f4a4}</Project>
       <Name>HelixToolkit</Name>
     </ProjectReference>
   </ItemGroup>
@@ -182,10 +182,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NUnit">
-      <Version>3.12.0</Version>
+      <Version>3.13.2</Version>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter">
-      <Version>3.17.0</Version>
+      <Version>4.0.0-beta.2</Version>
     </PackageReference>
     <PackageReference Include="SharpDX.D3DCompiler">
       <Version>4.2.0</Version>

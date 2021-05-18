@@ -76,12 +76,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj">
-      <Project>{7c0e987e-cc34-4b19-ba6b-b381aeabb530}</Project>
-      <Name>HelixToolkit</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\HelixToolkit.snk" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +96,16 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelixToolkit.Wpf.SharpDX\HelixToolkit.Wpf.SharpDX.csproj">
+      <Project>{39740654-f5f1-4936-b4ea-9bc97d4cde37}</Project>
+      <Name>HelixToolkit.Wpf.SharpDX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj">
+      <Project>{68fea97c-4974-480d-b02d-37e310d8f4a4}</Project>
+      <Name>HelixToolkit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\HelixToolkit.SharpDX.Assimp.Shared\HelixToolkit.SharpDX.Assimp.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

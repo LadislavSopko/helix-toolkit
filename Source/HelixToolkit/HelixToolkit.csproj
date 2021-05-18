@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net5.0-windows</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\HelixToolkit.snk</AssemblyOriginatorKeyFile>
         <Copyright>Copyright (C) Helix Toolkit 2018.</Copyright>
@@ -16,7 +16,7 @@
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <DocumentationFile>bin\Release\netstandard1.1\HelixToolkit.xml</DocumentationFile>
+      <DocumentationFile>bin\Release\netstandard2.0\HelixToolkit.xml</DocumentationFile>
       <ShouldCreateLogs>True</ShouldCreateLogs>
       
     </PropertyGroup>
