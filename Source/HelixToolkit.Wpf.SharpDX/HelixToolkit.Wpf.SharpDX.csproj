@@ -246,10 +246,10 @@
   <ItemGroup>
     <PackageReference Include="Cyotek.Drawing.BitmapFont">
       <Version>2.0.1</Version>
-      <Version>2.0.2</Version>
+      <Version>2.0.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
-      <Version>1.0.0</Version>
+      <Version>1.1.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
