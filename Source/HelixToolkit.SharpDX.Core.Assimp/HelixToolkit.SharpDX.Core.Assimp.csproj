@@ -68,7 +68,7 @@
   </PropertyGroup>
     
     <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='net5.0-windows|Release|AnyCPU'">
-      <DefineConstants>TRACE;NETFX_CORE;CORE;NET5_0</DefineConstants>
+      <DefineConstants>NETFX_CORE;CORE;NET5_0</DefineConstants>
       <DocumentationFile>bin\Release\HelixToolkit.SharpDX.Core.Assimp.xml</DocumentationFile>
       <OutputPath>bin\Release\</OutputPath>
       <NoWarn>1701;1702;1591;</NoWarn>
