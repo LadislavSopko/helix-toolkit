@@ -29,7 +29,7 @@
     <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;SHARPDX;</DefineConstants>
+    <DefineConstants>SHARPDX;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\HelixToolkit.Wpf.SharpDX.Assimp.xml</DocumentationFile>
