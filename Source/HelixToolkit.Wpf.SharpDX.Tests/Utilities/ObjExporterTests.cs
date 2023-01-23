@@ -46,8 +46,8 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
 o object1
 g group1
 usemtl mat1
-v 2 0 0
-v 2 1 0
+v 2 0 -0
+v 2 1 -0
 v 2 0 -1
 # 3 vertices
 vt 0 1
