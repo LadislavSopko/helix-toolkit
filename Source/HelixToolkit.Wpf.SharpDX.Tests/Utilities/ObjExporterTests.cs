@@ -11,6 +11,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
     using System.Windows.Media.Media3D;
 
     using NUnit.Framework;
+    using NUnit.Framework.Legacy;
 
     [TestFixture]
     public class ObjExporterTests
@@ -59,7 +60,7 @@ f 1/1 2/2 3/3
 
 ";
 
-                Assert.AreEqual(expectedObj.Replace("\r\n", "\n"), contentObj.Replace("\r\n", "\n"));
+                ClassicAssert.AreEqual(expectedObj.Replace("\r\n", "\n"), contentObj.Replace("\r\n", "\n"));
 
                 string contentMtl = File.ReadAllText(mtlPath);
             }

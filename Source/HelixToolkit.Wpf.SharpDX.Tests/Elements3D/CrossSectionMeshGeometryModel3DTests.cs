@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using SharpDX;
 
 namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
@@ -37,8 +38,8 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
             var hits = new List<HitTestResult>();
             var geometryModel3D = GetGeometryModel3D();
             geometryModel3D.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1,hits.Count);
-            Assert.AreEqual(new Vector3(0.5f,0,0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1,hits.Count);
+            ClassicAssert.AreEqual(new Vector3(0.5f,0,0), hits[0].PointHit);
         }
 
         [TestCaseSource(nameof(GetPlanes))]
@@ -50,8 +51,8 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
             var ray = new Ray(new Vector3(2f, 0f, 0f), new Vector3(-1, 0, 0));
             var hits = new List<HitTestResult>();
             geometryModel3D.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1, hits.Count);
-            Assert.AreEqual(new Vector3(-0.5f, 0, 0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1, hits.Count);
+            ClassicAssert.AreEqual(new Vector3(-0.5f, 0, 0), hits[0].PointHit);
         }
 
         /// <summary>

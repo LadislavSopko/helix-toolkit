@@ -1,5 +1,6 @@
 ﻿using HelixToolkit.Wpf.SharpDX;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +27,7 @@ namespace HelixToolkit.SharpDX.Core.Tests
             }
             effectsManager.Dispose();
             var liveObjects = global::SharpDX.Diagnostics.ObjectTracker.FindActiveObjects();
-            Assert.AreEqual(0, liveObjects.Count);
+            ClassicAssert.AreEqual(0, liveObjects.Count);
         }
     }
 }

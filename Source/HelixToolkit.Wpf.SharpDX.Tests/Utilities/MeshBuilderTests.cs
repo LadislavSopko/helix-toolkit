@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using SharpDX;
 
 namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
@@ -30,7 +31,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
             builder.ComputeNormalsAndTangents(MeshFaces.Default);
 
             Assert.That(builder.HasNormals);
-            Assert.AreEqual(3, builder.Normals.Count);
+            ClassicAssert.AreEqual(3, builder.Normals.Count);
         }
 
         [Test]
@@ -43,11 +44,11 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
             mb.AddTriangle(p0, p1, p2);
 
             Assert.That(mb.HasNormals);
-            Assert.AreEqual(3, mb.Normals.Count);
+            ClassicAssert.AreEqual(3, mb.Normals.Count);
 
             foreach (Vector3 normal in mb.Normals)
             {
-                Assert.AreEqual(new Vector3(0, 0, 1), normal);
+                ClassicAssert.AreEqual(new Vector3(0, 0, 1), normal);
             }
         }
 
@@ -62,11 +63,11 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
             mb.AddQuad(p0, p1, p2, p3);
 
             Assert.That(mb.HasNormals);
-            Assert.AreEqual(4, mb.Normals.Count);
+            ClassicAssert.AreEqual(4, mb.Normals.Count);
 
             foreach (Vector3 normal in mb.Normals)
             {
-                Assert.AreEqual(new Vector3(0, 0, 1), normal);
+                ClassicAssert.AreEqual(new Vector3(0, 0, 1), normal);
             }
         }
     }
