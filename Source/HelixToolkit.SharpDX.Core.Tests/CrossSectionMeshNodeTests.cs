@@ -12,6 +12,7 @@ using System.Threading;
 using HelixToolkit.SharpDX.Core.Controls;
 using HelixToolkit.SharpDX.Core.Model.Scene;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using SharpDX;
 
 namespace HelixToolkit.SharpDX.Core.Tests
@@ -37,8 +38,8 @@ namespace HelixToolkit.SharpDX.Core.Tests
             var hits = new List<HitTestResult>();
             var node = GetNode();
             node.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1, hits.Count);
-            Assert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1, hits.Count);
+            ClassicAssert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
         }
 
         [TestCaseSource(nameof(GetPlanes))]
@@ -50,8 +51,8 @@ namespace HelixToolkit.SharpDX.Core.Tests
             var ray = new Ray(new Vector3(2f, 0f, 0f), new Vector3(-1, 0, 0));
             var hits = new List<HitTestResult>();
             node.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1, hits.Count);
-            Assert.AreEqual(new Vector3(-0.5f, 0, 0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1, hits.Count);
+            ClassicAssert.AreEqual(new Vector3(-0.5f, 0, 0), hits[0].PointHit);
         }
 
         /// <summary>

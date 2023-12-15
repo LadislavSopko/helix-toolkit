@@ -10,6 +10,7 @@ using System.Threading;
 using HelixToolkit.SharpDX.Core.Controls;
 using HelixToolkit.SharpDX.Core.Model.Scene;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using SharpDX;
 
 namespace HelixToolkit.SharpDX.Core.Tests
@@ -37,8 +38,8 @@ namespace HelixToolkit.SharpDX.Core.Tests
             var hits = new List<HitTestResult>();
             var sceneNode = GetNode();
             sceneNode.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1, hits.Count);
-            Assert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1, hits.Count);
+            ClassicAssert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
         }
     }
 }

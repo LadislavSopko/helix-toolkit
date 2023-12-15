@@ -11,6 +11,7 @@ using NUnit.Framework;
 using System.IO;
 using System.Threading;
 using SharpDX;
+using NUnit.Framework.Legacy;
 
 namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
 {
@@ -28,7 +29,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
             var reader = new ObjReader();
             var objects = reader.Read(Path.Combine(TestContext.CurrentContext.TestDirectory, @"Models\obj\Triangle.obj"));
 
-            Assert.AreEqual(1, objects.Count);
+            ClassicAssert.AreEqual(1, objects.Count);
 
             var geometry = objects[0].Geometry;
             var model = new MeshGeometryModel3D { Geometry = geometry };
@@ -36,7 +37,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
             var canvas = new CanvasMock();
             model.SceneNode.Attach(canvas.RenderHost);
 
-            Assert.AreEqual(true, model.IsAttached);
+            ClassicAssert.AreEqual(true, model.IsAttached);
         }
 
         private MeshGeometryModel3D GetGeometryModel3D()
@@ -57,8 +58,8 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Elements3D
             var hits = new List<HitTestResult>();
             var geometryModel3D = GetGeometryModel3D();
             geometryModel3D.HitTest(viewport.RenderContext, ray, ref hits);
-            Assert.AreEqual(1, hits.Count);
-            Assert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
+            ClassicAssert.AreEqual(1, hits.Count);
+            ClassicAssert.AreEqual(new Vector3(0.5f, 0, 0), hits[0].PointHit);
         }
     }
 }

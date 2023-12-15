@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using HelixToolkit.Wpf.SharpDX.Model;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using SharpDX;
 
 namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
@@ -42,14 +43,14 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var objects = _objReader.Read(@"Models\obj\cornell_box.obj");
             
-            Assert.IsNotNull(objects);
-            Assert.AreEqual(9, objects.Count);
+            Assert.That(null != objects);
+            ClassicAssert.AreEqual(9, objects.Count);
 
             var floorGeometry = objects[0].Geometry as MeshGeometry3D;
 
-            Assert.IsNotNull(floorGeometry);
-            Assert.AreEqual(4, floorGeometry.Positions.Count);
-            Assert.AreEqual(4, floorGeometry.Normals.Count);
+            Assert.That(null != floorGeometry);
+            ClassicAssert.AreEqual(4, floorGeometry.Positions.Count);
+            ClassicAssert.AreEqual(4, floorGeometry.Normals.Count);
         }
 
 
@@ -58,7 +59,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\face_relative_vertices.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             var geometry = (MeshGeometry3D)model[0].Geometry;
             geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
@@ -68,7 +69,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\simple_triangle_with_normals.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             var geometry = (MeshGeometry3D)model[0].Geometry;
             geometry.Normals.AssertContains(new[] { 0d, 1d, 0d }, new[] { 0d, 1d, 0d }, new[] { 0d, 1d, 0d });
         }
@@ -78,7 +79,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\face_relative_vertex_normals.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             var geometry = (MeshGeometry3D)model[0].Geometry;
             geometry.Normals.AssertContains(new[] { 0d, 1d, 0d }, new[] { 0d, 1d, 0d }, new[] { 0d, 1d, 0d });
         }
@@ -88,7 +89,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\simple_triangle_with_texture.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             var geometry = (MeshGeometry3D)model[0].Geometry;
             geometry.TextureCoordinates.AssertContains(new[] { 0d, 0d }, new[] { 0d, 0d }, new[] { 0d, 0d });
         }
@@ -98,7 +99,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\face_relative_texture_vertices.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             var geometry = (MeshGeometry3D)model[0].Geometry;
             geometry.TextureCoordinates.AssertContains(new[] { 0d, 0d }, new[] { 0d, 0d }, new[] { 0d, 0d });
         }
@@ -108,7 +109,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\simple_triangle.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -117,7 +118,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\line_continuation_single.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -126,7 +127,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\line_continuation_multiple_breaks.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -135,7 +136,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\line_continuation_empty_continuation.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -144,7 +145,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\line_continuation_empty_line.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -153,7 +154,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var model = _objReader.Read(@"Models\obj\line_continuation_comment.obj");
 
-            Assert.AreEqual(1, model.Count);
+            ClassicAssert.AreEqual(1, model.Count);
             model[0].Geometry.Positions.AssertContains(new[] { -1d, 0d, 1d }, new[] { 1d, 0d, 1d }, new[] { -1d, 0d, -1d });
         }
 
@@ -206,9 +207,9 @@ f 4/4 3/5 2/6
                 var model = _objReader.Read(stream);
                 var mesh = (MeshGeometry3D)model[0].Geometry;
 
-                Assert.AreEqual(6, mesh.Indices.Count);
-                Assert.AreEqual(6, mesh.Positions.Count);
-                Assert.AreEqual(6, mesh.TextureCoordinates.Count);
+                ClassicAssert.AreEqual(6, mesh.Indices.Count);
+                ClassicAssert.AreEqual(6, mesh.Positions.Count);
+                ClassicAssert.AreEqual(6, mesh.TextureCoordinates.Count);
 
                 CollectionAssert.AreEqual(expectedPositions, mesh.Positions);
                 CollectionAssert.AreEqual(expectedTextureCoordinates, mesh.TextureCoordinates);
@@ -264,9 +265,9 @@ f 4/4 3/5 2/6
                 var model = _objReader.Read(stream);
                 var mesh = (MeshGeometry3D)model[0].Geometry;
 
-                Assert.AreEqual(6, mesh.Indices.Count);
-                Assert.AreEqual(6, mesh.Positions.Count);
-                Assert.AreEqual(6, mesh.TextureCoordinates.Count);
+                ClassicAssert.AreEqual(6, mesh.Indices.Count);
+                ClassicAssert.AreEqual(6, mesh.Positions.Count);
+                ClassicAssert.AreEqual(6, mesh.TextureCoordinates.Count);
 
                 CollectionAssert.AreEqual(expectedPositions, mesh.Positions);
                 CollectionAssert.AreEqual(expectedTextureCoordinates, mesh.TextureCoordinates);
@@ -381,12 +382,12 @@ map_bump " + tempTexBump + @"
 
         public void Compare(Stream s1, Stream s2)
         {
-            Assert.AreEqual(s1.Length, s2.Length);
+            ClassicAssert.AreEqual(s1.Length, s2.Length);
             s2.Position = 0;
             s1.Position = 0;
             for(int i=0; i<s1.Length; ++i)
             {
-                Assert.AreEqual(s1.ReadByte(), s2.ReadByte());
+                ClassicAssert.AreEqual(s1.ReadByte(), s2.ReadByte());
             }
         }
 
@@ -417,7 +418,7 @@ Kd 0 0 0
 ");
 
                 var model = _objReader.Read(tempObj);
-                Assert.AreEqual(new Color4(1, 1, 1, 1), _objReader.Materials["TestMaterial"].Diffuse);
+                ClassicAssert.AreEqual(new Color4(1, 1, 1, 1), _objReader.Materials["TestMaterial"].Diffuse);
             }
             finally
             {
@@ -431,16 +432,16 @@ Kd 0 0 0
     {
         public static void AssertContains(this Vector2Collection collection, params double[][] points) 
         {
-            Assert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
+            ClassicAssert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
             foreach (var point in points)
-                Assert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1}]", point[0], point[1]);
+                ClassicAssert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1}]", point[0], point[1]);
         }
 
         public static void AssertContains(this Vector3Collection collection, params double[][] points) 
         {
-            Assert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
+            ClassicAssert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
             foreach (var point in points)
-                Assert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1},{2}]", point[0], point[1], point[2]);
+                ClassicAssert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1},{2}]", point[0], point[1], point[2]);
         }
 
         public static bool Contains(this Vector3Collection vectors, double[] expectedVector)
