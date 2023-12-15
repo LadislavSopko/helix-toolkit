@@ -24,12 +24,12 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
                     new Vector3(7f, 0f, 7f),
                 });
 
-            Assert.IsNull(builder.Normals);
-            Assert.IsFalse(builder.HasNormals);
+            Assert.That(null == builder.Normals);
+            Assert.That(!builder.HasNormals);
 
             builder.ComputeNormalsAndTangents(MeshFaces.Default);
 
-            Assert.IsTrue(builder.HasNormals);
+            Assert.That(builder.HasNormals);
             Assert.AreEqual(3, builder.Normals.Count);
         }
 
@@ -42,7 +42,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
             var p2 = new Vector3(1, 1, 0);
             mb.AddTriangle(p0, p1, p2);
 
-            Assert.IsTrue(mb.HasNormals);
+            Assert.That(mb.HasNormals);
             Assert.AreEqual(3, mb.Normals.Count);
 
             foreach (Vector3 normal in mb.Normals)
@@ -61,7 +61,7 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Utilities
             var p3 = new Vector3(0, 1, 0);
             mb.AddQuad(p0, p1, p2, p3);
 
-            Assert.IsTrue(mb.HasNormals);
+            Assert.That(mb.HasNormals);
             Assert.AreEqual(4, mb.Normals.Count);
 
             foreach (Vector3 normal in mb.Normals)

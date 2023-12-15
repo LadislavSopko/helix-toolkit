@@ -18,11 +18,11 @@ namespace HelixToolkit.SharpDX.Core.Tests
             foreach (var techName in effectsManager.RenderTechniques)
             {
                 var tech = effectsManager[techName];
-                Assert.IsFalse(tech.IsNull);
+                Assert.That(!tech.IsNull);
                 foreach (var passName in tech.ShaderPassNames)
                 {
                     var p = tech[passName];
-                    Assert.IsFalse(p.IsNULL);
+                    Assert.That(!p.IsNULL);
                 }
             }
             effectsManager.Dispose();

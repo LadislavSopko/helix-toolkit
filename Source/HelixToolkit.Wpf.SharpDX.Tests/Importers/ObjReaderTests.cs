@@ -42,12 +42,12 @@ namespace HelixToolkit.Wpf.SharpDX.Tests.Importers
         {
             var objects = _objReader.Read(@"Models\obj\cornell_box.obj");
             
-            Assert.IsNotNull(objects);
+            Assert.That(null != objects);
             Assert.AreEqual(9, objects.Count);
 
             var floorGeometry = objects[0].Geometry as MeshGeometry3D;
 
-            Assert.IsNotNull(floorGeometry);
+            Assert.That(null != floorGeometry);
             Assert.AreEqual(4, floorGeometry.Positions.Count);
             Assert.AreEqual(4, floorGeometry.Normals.Count);
         }
@@ -433,14 +433,14 @@ Kd 0 0 0
         {
             Assert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
             foreach (var point in points)
-                Assert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1}]", point[0], point[1]);
+                Assert.That(collection.Contains(point), "Expected collection to contain point [{0},{1}]", point[0], point[1]);
         }
 
         public static void AssertContains(this Vector3Collection collection, params double[][] points) 
         {
             Assert.AreEqual(points.Length, collection.Count, "Expected to find {0} points in collection", points.Length);
             foreach (var point in points)
-                Assert.IsTrue(collection.Contains(point), "Expected collection to contain point [{0},{1},{2}]", point[0], point[1], point[2]);
+                Assert.That(collection.Contains(point), "Expected collection to contain point [{0},{1},{2}]", point[0], point[1], point[2]);
         }
 
         public static bool Contains(this Vector3Collection vectors, double[] expectedVector)
