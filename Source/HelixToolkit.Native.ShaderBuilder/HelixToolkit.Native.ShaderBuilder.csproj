@@ -321,6 +321,7 @@
 
     <ItemGroup>
         <PackageReference Include="JeremyAnsel.HLSL.Targets" Version="2.0.22" />
+        <PackageReference Include="JeremyAnsel.HLSL.Targets" Version="2.0.25" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
