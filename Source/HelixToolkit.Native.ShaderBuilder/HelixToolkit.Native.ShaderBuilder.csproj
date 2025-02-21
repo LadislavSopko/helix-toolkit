@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -320,7 +321,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="JeremyAnsel.HLSL.Targets" Version="2.0.26" />
+        <PackageReference Include="JeremyAnsel.HLSL.Targets"  />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">

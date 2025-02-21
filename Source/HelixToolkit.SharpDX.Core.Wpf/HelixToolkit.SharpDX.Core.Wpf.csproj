@@ -19,6 +19,7 @@
       <RootNamespace>HelixToolkit.Wpf.SharpDX</RootNamespace>
       <DelaySign>false</DelaySign>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -39,13 +40,13 @@
   <Import Project="..\HelixToolkit.Wpf.SharpDX.Shared\HelixToolkit.Wpf.SharpDX.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct3D9" Version="4.2.0" />
-    <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Direct2D1"  />
+    <PackageReference Include="SharpDX.Direct3D11"  />
+    <PackageReference Include="SharpDX.Direct3D9"  />
+    <PackageReference Include="SharpDX.DXGI"  />
+    <PackageReference Include="SharpDX.Mathematics"  />
     <PackageReference Include="Microsoft.SourceLink.GitHub">
-        <Version>8.0.0</Version>
+        
         <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
     </PackageReference>

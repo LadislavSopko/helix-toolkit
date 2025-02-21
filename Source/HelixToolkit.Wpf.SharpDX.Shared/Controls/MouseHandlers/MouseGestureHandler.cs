@@ -265,10 +265,12 @@ namespace HelixToolkit.Wpf.SharpDX
         public Vector3? UnProject(Point p, Vector3 position, Vector3 normal)
         {
             var ray = this.GetRay(p);
+#pragma warning disable CS8073 // The result of the expression is always the same since a value of this type is never equal to 'null'
             if (ray == null)
             {
                 return null;
             }
+#pragma warning restore CS8073 // The result of the expression is always the same since a value of this type is never equal to 'null'
             var plane = new Plane(position, normal);
             if (ray.Intersects(ref plane, out Vector3 point))
             {

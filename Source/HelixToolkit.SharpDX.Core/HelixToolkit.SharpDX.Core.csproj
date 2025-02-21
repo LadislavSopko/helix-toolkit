@@ -120,6 +120,7 @@
     <DelaySign>false</DelaySign>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+      <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)|$(Configuration)|$(Platform)'=='netstandard1.3|Debug|AnyCPU'">
@@ -292,31 +293,29 @@
     <EmbeddedResource Include="Resources\vsVolume.cso" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="2.0.4" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+    <PackageReference Include="Cyotek.Drawing.BitmapFont"/>
+    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" >
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SharpDX.D3DCompiler" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
-    <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
-    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Private.DataContractSerialization" Version="4.3.0" />
-    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.7.0" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Serialization.Xml" Version="4.3.0" />
-    <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
+    <PackageReference Include="SharpDX.D3DCompiler"  />
+    <PackageReference Include="SharpDX.Direct2D1"  />
+    <PackageReference Include="SharpDX.Direct3D11"  />
+    <PackageReference Include="SharpDX.DXGI" />
+    <PackageReference Include="SharpDX.Mathematics"  />
+    <PackageReference Include="System.ComponentModel.TypeConverter"  />
+    <PackageReference Include="System.Drawing.Primitives"  />
+    <PackageReference Include="System.Private.DataContractSerialization" />
+    <PackageReference Include="System.Reflection.TypeExtensions"  />
+    <PackageReference Include="System.Runtime.Serialization.Primitives"  />
+    <PackageReference Include="System.Runtime.Serialization.Xml"  />
+    <PackageReference Include="System.Threading.Tasks.Parallel"  />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <PackageReference Include="System.CodeDom">
-      <Version>4.5.0</Version>
-    </PackageReference>
+    <PackageReference Include="System.CodeDom"/>
   </ItemGroup>
 </Project>

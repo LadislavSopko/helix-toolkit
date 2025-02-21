@@ -213,10 +213,12 @@ namespace HelixToolkit.Wpf.SharpDX
                 throw new ArgumentNullException("m");
             }
 
+#pragma warning disable CS8073 // The result of the expression is always the same since a value of this type is never equal to 'null'
             if (t == null)
             {
                 throw new ArgumentNullException("t");
             }
+#pragma warning restore CS8073 // The result of the expression is always the same since a value of this type is never equal to 'null'
 
             // mapping from local indices (0-based) to the obj file indices (1-based)
             var vertexIndexMap = new Dictionary<int, int>();
