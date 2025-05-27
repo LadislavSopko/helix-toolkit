@@ -87,10 +87,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HelixToolkit.Wpf.SharpDX\HelixToolkit.Wpf.SharpDX.csproj">
-      <Project>{39740654-f5f1-4936-b4ea-9bc97d4cde37}</Project>
-      <Name>HelixToolkit.Wpf.SharpDX</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HelixToolkit\HelixToolkit.csproj">
       <Project>{68fea97c-4974-480d-b02d-37e310d8f4a4}</Project>
       <Name>HelixToolkit</Name>
